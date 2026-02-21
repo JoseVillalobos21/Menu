@@ -393,6 +393,27 @@
             transform: scale(1.1);
         }
 
+        /* QR Code Overlay */
+        .qr-code-overlay {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            width: 120px; /* Ajusta el tamaño según prefieras */
+            height: auto;
+            z-index: 1000;
+            /* pointer-events: none; - Quitamos esto si quieres que sea clickable/scannable sin problemas (aunque img no deberia bloquear mucho) */
+            padding: 5px;
+            background: white; /* Fondo blanco para contraste */
+            border: 2px solid black;
+            box-shadow: 3px 3px 0px rgba(0,0,0,0.2);
+        }
+
+        .qr-code-overlay img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
         @media (max-width: 768px) {
             body {
                 padding: 0;
