@@ -327,11 +327,47 @@
         }
 
         /* Footer */
+/* Footer Layout */
+        .footer-flex-container {
+            display: flex;
+            align-items: center;
+            justify-content: flex-start; /* Alineado a la izquierda */
+            gap: 20px;
+            flex-wrap: wrap; /* Para móviles */
+            max-width: 100%; /* Asegurar uso del ancho disponible */
+        }
+
+        .footer-qr-img {
+            width: 100px; /* Tamaño del QR ajustado */
+            height: auto;
+            border: 2px solid black;
+            box-shadow:   0px rgba(0,0,0,0.2);
+            background: white;
+            padding: 5px;
+        }
+
+        .footer-content {
+             flex: 1; /* Ocupar el resto del espacio */
+             text-align: center; /* Texto centrado como pidió el usuario */
+        }
+
         .menu-footer {
             border-top: 3px solid black;
             padding-top: 2rem;
-            text-align: center;
+            /* text-align: center;  <-- Quitamos o sobreescribimos esto para el flex container */
             margin-top: 2rem;
+            text-align: center; /* Mantener centrado general */
+        }
+        
+        /* Ajuste para móviles */
+        @media (max-width: 768px) {
+            .footer-flex-container {
+                flex-direction: column; /* Apilar en móvil si es muy estrecho */
+                text-align: center;
+            }
+            .footer-content {
+                text-align: center;
+            }
         }
 
         .footer-wave {
@@ -393,17 +429,16 @@
             transform: scale(1.1);
         }
 
-        /* QR Code Overlay */
+        /* QR Code Overlay (Inside Card) */
         .qr-code-overlay {
-            position: fixed;
+            position: absolute; /* Changed from fixed to absolute */
             bottom: 20px;
             left: 20px;
-            width: 120px; /* Ajusta el tamaño según prefieras */
+            width: 100px; /* Reduced slightly to fit better inside padding */
             height: auto;
-            z-index: 1000;
-            /* pointer-events: none; - Quitamos esto si quieres que sea clickable/scannable sin problemas (aunque img no deberia bloquear mucho) */
+            z-index: 10;
             padding: 5px;
-            background: white; /* Fondo blanco para contraste */
+            background: white;
             border: 2px solid black;
             box-shadow: 3px 3px 0px rgba(0,0,0,0.2);
         }
